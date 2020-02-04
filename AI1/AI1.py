@@ -99,8 +99,27 @@ def incrementSparseVector(v1, scale, v2):
     """
     # BEGIN_YOUR_CODE (our solution is 2 lines of code, but don't worry if you deviate from this)
     #raise Exception("Not implemented yet")
+    a=b=0;
+    while a < len(v1) and b < len(v2):
+        if v1[a][0] == v2[b][0]:
+            v1[a] = tuple([v1[a][0], v1[a][1] + scale * v2[b][1]])
+            a += 1
+            b += 1
+        elif v1[a][0] < v2[b][0]:
+            a += 1
+        else:
+            v1.insert(a, tuple([v2[b][0], 0 + scale * v2[b][1]]))
+            a+=1
+            b+=1
+    while b < len(v2):
+        v1.append(v2[b])
+        b+=1
+    return v1
+          
 
     # END_YOUR_CODE
+
+print(incrementSparseVector([(2,3), (5,4)] , 5 , [(1,7), (2,6), (5,3)] ))
 
 ############################################################
 # Problem 3f
