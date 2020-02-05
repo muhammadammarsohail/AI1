@@ -15,7 +15,6 @@ def findAlphabeticallyLastWord(text):
     # raise Exception("Not implemented yet")
     return max(text.lower().split())
 
-print(findAlphabeticallyLastWord("The quick brown fox jumps over the lazy dog"))
 
     # END_YOUR_CODE
 
@@ -33,7 +32,6 @@ def euclideanDistance(loc1, loc2):
     return math.sqrt((loc1[0]-loc2[0])**2 + (loc1[1]-loc2[1])**2)
     # END_YOUR_CODE
 
-print(euclideanDistance((9,7), (3,2)))
 
 ############################################################
 # Problem 3c
@@ -85,7 +83,6 @@ def sparseVectorDotProduct(v1, v2):
             b += 1
     return sum(ans)
 
-print(sparseVectorDotProduct( [(2,3), (5,4)] , [(1,7), (2,6), (5,3)] ))
 
     # END_YOUR_CODE
 
@@ -119,7 +116,6 @@ def incrementSparseVector(v1, scale, v2):
 
     # END_YOUR_CODE
 
-print(incrementSparseVector([(2,3), (5,4)] , 5 , [(1,7), (2,6), (5,3)] ))
 
 ############################################################
 # Problem 3f
@@ -131,8 +127,30 @@ def findSingletonWords(text):
     You might find it useful to use collections.defaultdict(int).
     """
     # BEGIN_YOUR_CODE (our solution is 4 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    #raise Exception("Not implemented yet")
+    allWords = text.lower().split()
+    
+    allWords.sort()
+    output = list()
+    for a in range(len(allWords)):
+        if(a == 0):
+            if(allWords[a] == allWords[a+1]):
+                continue
+            else:
+                output.append(allWords[a])
+        elif(a == len(allWords)-1):
+            if(allWords[a] == allWords[a-1]):
+                continue
+            else: output.append(allWords[a])
+        else:
+            if(allWords[a] == allWords[a+1] or allWords[a] == allWords[a-1]):
+                continue
+            else: output.append(allWords[a])
+    return output
+
+
     # END_YOUR_CODE
+
 
 ############################################################
 # Problem 3g
@@ -147,6 +165,8 @@ def computeLongestPalindromeLength(text):
     You should first define a recurrence before you start coding.
     """
     # BEGIN_YOUR_CODE (our solution is 19 lines of code, but don't worry if you deviate from this)
-    #raise Exception("Not implemented yet")
+    raise Exception("Not implemented yet")
+
     
     # END_YOUR_CODE
+
